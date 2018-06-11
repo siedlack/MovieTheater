@@ -117,7 +117,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -146,11 +146,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Hello.c" />
+    <ClCompile Include="csvparser.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="main_menu.c" />
+    <ClCompile Include="movies_list.c" />
+    <ClCompile Include="ticketdata.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hello.h" />
+    <ClInclude Include="csvparser.h" />
+    <ClInclude Include="main_menu.h" />
+    <ClInclude Include="movies_list.h" />
+    <ClInclude Include="ticketdata.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

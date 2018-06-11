@@ -1,8 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include "hello.h"
+#include "csvparser.h"
+#include "main_menu.h"
+#include "ticketdata.h"
 
 void main() {
-	hello();
+	main_menu();
+	get_ticketdata();
 
 	getchar();
 }
