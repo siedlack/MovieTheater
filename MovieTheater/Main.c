@@ -3,6 +3,7 @@
 
 void main() {
 	hello();
+	get_ticketdata();
 
 	getchar();
 }
