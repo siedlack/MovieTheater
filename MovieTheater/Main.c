@@ -6,7 +6,7 @@
 
 void main() {
 	main_menu();
-	get_ticketdata();
 
+	system("pause");
 	getchar();
 }

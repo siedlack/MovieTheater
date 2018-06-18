@@ -18,7 +18,7 @@ int main_menu() {
 			break;
 		case 2:
 			// TODO sprawdzenie rezerwacji
-			printf("Booking...\n");
+			create_ticketfile_with_ticketdata();
 			break;
 		default:
 			printf("Czy na pewno chcesz wyjsc? To naprawde dobra apka");

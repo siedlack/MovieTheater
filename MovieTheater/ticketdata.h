@@ -1,3 +1,3 @@
 #pragma once
 
-int get_ticketdata();
+void create_ticketfile_with_ticketdata();
