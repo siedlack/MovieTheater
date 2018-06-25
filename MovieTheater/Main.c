@@ -7,6 +7,5 @@
 void main() {
 	main_menu();
 
-	system("pause");
 	getchar();
 }

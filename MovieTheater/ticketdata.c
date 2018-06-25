@@ -3,17 +3,53 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "ticketdata.h"
 
 
-void create_ticketfile_with_ticketdata()
+void create_ticketfile_with_ticketdata() 
 {
 	char phonenumber[10];
-	char name[60];
-	printf("Podaj imie i nazwisko \n");
+	char name[30];
+	int i,j;
+	int cout = 0;
+	int name_len = 0;
+
+	getchar();
+	printf("Podaj imie i nazwisko: \n");
 	fgets(name, sizeof name, stdin);
-	printf("Podaj numer telefonu: \n");
+	name_len = strlen(name);
+	for (int i = 0; i < name_len; i++)
+	{
+		if (isdigit(name[i]))
+		{
+			printf("Imie i nazwisko nie moga zawierac cyfr \n");
+			return 0;
+		}
+	}
+	getchar();
+	printf("Podaj numer telefonu i nacisnij enter ");
 	fgets(phonenumber, sizeof phonenumber, stdin);
+
+	// sprawdzenie dlugosci numeru telefonu
+	if (strlen(phonenumber) != 9)
+	{
+		printf("Numer telefonu powinien skladac sie z 9 znakow \n");
+		return 0;
+	}
+
+	for (int j = 0; j < 9; j++)
+	{
+		if (isdigit(phonenumber[j]))
+		{
+			cout++;
+		}
+		else
+		{
+			printf("Numer telefonu ma sie skladac tylko z cyfr\n");
+			return 0;
+		}
+	}
 
 	char filename[20];
 	char buff[255];
@@ -55,3 +91,4 @@ void create_ticketfile_with_ticketdata()
 
 	return 0;
 }
+
