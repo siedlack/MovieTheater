@@ -14,40 +14,60 @@ void create_ticketfile_with_ticketdata()
 	int i,j;
 	int cout = 0;
 	int name_len = 0;
+	int back = 0;
 
-	getchar();
-	printf("Podaj imie i nazwisko: \n");
-	fgets(name, sizeof name, stdin);
-	name_len = strlen(name);
-	for (int i = 0; i < name_len; i++)
-	{
-		if (isdigit(name[i]))
+	while (back == 0) {
+		getchar();
+		printf("Podaj imie i nazwisko: \n");
+		fgets(name, sizeof name, stdin);
+		name_len = strlen(name);
+		for (int i = 0; i < name_len; i++)
 		{
-			printf("Imie i nazwisko nie moga zawierac cyfr \n");
-			return 0;
+			if (isdigit(name[i]))
+			{
+				printf("Imie i nazwisko nie moga zawierac cyfr \n");
+				back = 0;
+				break;
+			}
+			else {
+				back = 1;
+			}
 		}
 	}
-	getchar();
-	printf("Podaj numer telefonu i nacisnij enter ");
-	fgets(phonenumber, sizeof phonenumber, stdin);
 
-	// sprawdzenie dlugosci numeru telefonu
-	if (strlen(phonenumber) != 9)
+	back = 0;
+	while (back == 0)
 	{
-		printf("Numer telefonu powinien skladac sie z 9 znakow \n");
-		return 0;
-	}
+		getchar();
+		printf("Podaj numer telefonu: ");
+		fgets(phonenumber, sizeof phonenumber, stdin);
 
-	for (int j = 0; j < 9; j++)
-	{
-		if (isdigit(phonenumber[j]))
+		// sprawdzenie dlugosci numeru telefonu
+		if (strlen(phonenumber) != 9)
 		{
-			cout++;
+			printf("Numer telefonu powinien skladac sie z 9 znakow \n");
+			back = 0;
 		}
 		else
 		{
-			printf("Numer telefonu ma sie skladac tylko z cyfr\n");
-			return 0;
+			back = 1;
+		}
+
+		if (back == 1)
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				if (isdigit(phonenumber[j]))
+				{
+					cout++;
+				}
+				else
+				{
+					printf("Numer telefonu ma sie skladac tylko z cyfr\n");
+					back = 0;
+					break;
+				}
+			}
 		}
 	}
 
@@ -66,7 +86,7 @@ void create_ticketfile_with_ticketdata()
 
 	if (NULL == fp)
 	{
-		fprintf(stderr, "Cannot open file: %s\n", filename);
+		fprintf(stderr, "Nie mozna otworzyc pliku: %s\n", filename);
 		return 1;
 	}
 
