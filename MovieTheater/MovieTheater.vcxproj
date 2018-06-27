@@ -150,12 +150,14 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="main_menu.c" />
     <ClCompile Include="movies_list.c" />
+    <ClCompile Include="screening_room_manager.c" />
     <ClCompile Include="ticketdata.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="csvparser.h" />
     <ClInclude Include="main_menu.h" />
     <ClInclude Include="movies_list.h" />
+    <ClInclude Include="screening_room_manager.h" />
     <ClInclude Include="ticketdata.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -30,6 +30,9 @@
     <ClCompile Include="ticketdata.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="screening_room_manager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="csvparser.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ticketdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screening_room_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
