@@ -10,11 +10,12 @@
 
 char lines[MAXL][MAXD];
 int numlines = 0;
+char full_path[20] = "";
 
 void show_screening_room(char screening_room) {
 	int i = 0;
 	char buf[MAXB] = { 0 };
-	char default_path[10] = "files/sr", full_path[20] = "", ext[5] = ".txt";
+	char default_path[10] = "files/sr", ext[10] = ".txt";
 
 	strcat(full_path, default_path);
 	strcat(full_path, &screening_room);
@@ -37,14 +38,12 @@ void show_screening_room(char screening_room) {
 	fclose(fp);
 
 	numlines = i;
-	printf("numlines: %d\n", numlines);
-	int j = 0, e = 0;
+
+	int j = 0;
 
 	for (i = 0; i < numlines; i++) {
 		for (j = 0; j < MAXD; j++) {
 			printf("%hhd ", lines[i][j]);
-			//e = lines[i][j];
-			//printf("%hhd ", e);
 		}
 		printf("\n");
 	}
@@ -52,24 +51,41 @@ void show_screening_room(char screening_room) {
 
 void book_seats() {
 	char movie = "";
-	int seats_num, x, y, e;
+	int seats_num, x, y, seat, w=0;
 
 	printf("\n\nWybierz film aby wyswietlic wolne miesca:\n");
 	scanf("%c", &movie);
 
 	show_screening_room(movie);
 
-	printf("\n\nIle miejsc achcesz zarezerwowac?:\n");
+	printf("\n\nIle miejsc chcesz zarezerwowac?:\n");
 	scanf("%d", &seats_num);
+
+	FILE *tmp_file = fopen("files/tmp_file.txt", "wb");
+
+	do {
+		printf("Podaj miejsce #%d miejsce (rzad, kolumna)\n", w);
+		scanf("%d %d", &x, &y);
+		if (lines[x][y] == 1) printf("To miejsce jest juz zajete, sprobuj wybrac inne miejsce.\n", x, y);
+		else {
+			lines[x][y] = 1;
+			w++;
+		}
+		
+	} while (w != seats_num);
 
 	for (int i = 0; i < numlines; i++) {
 		for (int j = 0; j < MAXD; j++) {
-			// TODO validation
-			//printf("%hhd ", lines[i][j]);
-			//e = lines[i][j];
-			//printf("%hhd ", e);
+			fprintf(tmp_file, "%d ", lines[i][j]);
 		}
-		printf("\n");
+		fprintf(tmp_file,"\n");
 	}
+
+	fclose(tmp_file);
+	if (remove(full_path) == 0) {
+		rename("files/tmp_file.txt", full_path);
+	} else printf("Unable to delete the file");
+
+	return 0;
 }
 

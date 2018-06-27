@@ -11,7 +11,7 @@ void main() {
 	//create_ticketfile_with_ticketdata();
 	//show_screening_room(1);
 
-	//book_seats();
+	book_seats();
 
 	//check_reservation();
 
