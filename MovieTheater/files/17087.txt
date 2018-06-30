@@ -1,0 +1,4 @@
+Imie i nazwisko: Test Tester
+Numer telefonu: 123456789
+Rzad: 1  Miejsce: 0
+Rzad: 1  Miejsce: 1

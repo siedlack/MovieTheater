@@ -12,13 +12,15 @@ int check_reservation() {
 	const char *result = malloc(100);
 	char *bufor = malloc(200);
 	const char *napis = malloc(200);
+	int reservation_number;
+	char rn[10];
 
-	printf("podaj 4 cyfrowy kod: \n");
-	fgets(tab, 5, stdin);
-
+	printf("podaj 5 cyfrowy kod: \n");
+	scanf("%d", &reservation_number);
+	sprintf(rn, "%d", reservation_number);
 	strcpy(result, files);
 
-	strcat(result, tab);
+	strcat(result, rn);
 
 	strcat(result, txt);
 	printf(result);
@@ -26,9 +28,7 @@ int check_reservation() {
 
 	FILE *f = fopen(result, "r");
 	if (f == NULL) {
-
-		puts("plik nie istnieje\n");
-		system("pause");
+		puts("rezerwacja o podanym numerze nie istnieje\n");
 		return 1;
 	}
 
