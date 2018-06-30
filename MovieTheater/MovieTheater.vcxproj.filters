@@ -27,10 +27,10 @@
     <ClCompile Include="movies_list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ticketdata.c">
+    <ClCompile Include="reservation_check.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="screening_room_manager.c">
+    <ClCompile Include="reservation_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClInclude Include="movies_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ticketdata.h">
+    <ClInclude Include="reservation_check.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="screening_room_manager.h">
+    <ClInclude Include="reservation_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
